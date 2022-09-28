@@ -19,7 +19,10 @@ if (!("BarcodeDetector" in window)) {
     });
 
     BarcodeDetector.getSupportedFormats().then((supportedFormats) => {
-      supportedFormats.forEach((format) => console.log(format));
+
+      var supported_formats = [];
+      supportedFormats.forEach((format) => supported_formats.push(format));
     });
+    document.getElementById('message').textContent = supported_formats;
   }
   // check supported types
