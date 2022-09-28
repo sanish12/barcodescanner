@@ -7,10 +7,13 @@
     <title>Barcode Scanner</title>
 </head>
 <body>
-    <div id="qr-reader" style="width: 600px"></div>
+    <div id="interactive" class="viewport">
+        <video autoplay="true" preload="auto"></video>
+    </div>
     <p id="message"></p>
 
     <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
+    <script src="https://cdn.rawgit.com/serratus/quaggaJS/0420d5e0/dist/quagga.min.js"></script>
     <script src="./main.js" async></script>
 </body>
 </html>
