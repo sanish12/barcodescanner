@@ -17,4 +17,9 @@ if (!("BarcodeDetector" in window)) {
     const barcodeDetector = new BarcodeDetector({
       formats: ["code_39", "codabar", "ean_13"],
     });
+
+    BarcodeDetector.getSupportedFormats().then((supportedFormats) => {
+      supportedFormats.forEach((format) => console.log(format));
+    });
   }
+  // check supported types
