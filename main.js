@@ -58,6 +58,7 @@ imageForScanning.addEventListener('change', function (e) {
   }, function (result) {
     if (result) {
       console.log("result", result.codeResult.code);
+      document.getElementById('message').textContent = result.codeResult.code;
     } else {
       console.log("not detected");
     }
