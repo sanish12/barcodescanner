@@ -319,7 +319,7 @@ $(function() {
                 });
 
                 var resultCheckSum = ((3 * oddSumVal ) + evenSumVal)%10;
-                if(resultCheckSum === checkSumVar){
+                if(resultCheckSum == checkSumVar){
                     document.getElementById('customMessage').innerText = 'Valid checksum : ' + resultCheckSum;
                 }else{
                     document.getElementById('customMessage').innerText = 'invalid checksum';
