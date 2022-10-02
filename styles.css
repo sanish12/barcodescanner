@@ -40,7 +40,8 @@ footer {
   padding: 1em 2em 2em;
 }
 
-#container {
+#barcode_container {
+  display: none;
   width: 640px;
   margin: 20px auto;
   padding: 10px;
@@ -204,7 +205,7 @@ i.icon-24-scan {
 
 @media (max-width: 603px) {
 
-  #container {
+  #barcode_container {
     width: 300px;
     margin: 10px auto;
     -moz-box-shadow: none;
@@ -212,7 +213,7 @@ i.icon-24-scan {
     box-shadow: none;
   }
 
-  #container form.voucher-form input.voucher-code {
+  #barcode_container form.voucher-form input.voucher-code {
     width: 180px;
   }
 }
