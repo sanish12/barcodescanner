@@ -1,3 +1,5 @@
+
+
 /**
  * 
  *    USE THE MEDIA API TO GET AN IMAGE AND FIND BARCODE
@@ -6,6 +8,7 @@
 var streamBarcode = document.getElementById('startStream');
 streamBarcode.addEventListener('click', function () {
   document.getElementById('fileStream').style.display = 'none';
+
   Quagga.init({
     inputStream: {
       name: "Live",
@@ -17,9 +20,9 @@ streamBarcode.addEventListener('click', function () {
         "upc_e_reader",]
     },
     debug: {
-      drawBoundingBox: false,
+      drawBoundingBox: true,
       showFrequency: false,
-      drawScanline: false,
+      drawScanline: true,
       showPattern: false
     },
     multiple: false,
@@ -33,38 +36,14 @@ streamBarcode.addEventListener('click', function () {
     Quagga.start();
   });
 
-  // Make sure, QuaggaJS draws frames an lines around possible 
-	// barcodes on the live stream
-	Quagga.onProcessed(function(result) {
-		var drawingCtx = Quagga.canvas.ctx.overlay,
-			drawingCanvas = Quagga.canvas.dom.overlay;
- 
-		if (result) {
-			if (result.boxes) {
-				drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute("width")), parseInt(drawingCanvas.getAttribute("height")));
-				result.boxes.filter(function (box) {
-					return box !== result.box;
-				}).forEach(function (box) {
-					Quagga.ImageDebug.drawPath(box, {x: 0, y: 1}, drawingCtx, {color: "green", lineWidth: 2});
-				});
-			}
- 
-			if (result.box) {
-				Quagga.ImageDebug.drawPath(result.box, {x: 0, y: 1}, drawingCtx, {color: "#00F", lineWidth: 2});
-			}
- 
-			if (result.codeResult && result.codeResult.code) {
-				Quagga.ImageDebug.drawPath(result.line, {x: 'x', y: 'y'}, drawingCtx, {color: 'red', lineWidth: 3});
-			}
-		}
-	});
 
   Quagga.onDetected(function (result) {
-    document.getElementById('message').innerHTML = result.codeResult.code;
-    console.log('barcode detected');
-    console.log(result);
-
-  })
+    if(result){
+      document.getElementById('message').innerHTML = result.codeResult.code;
+      console.log('barcode detected');
+      console.log(result);
+    }
+  });
 
 });
 
@@ -84,8 +63,7 @@ imageForScanning.addEventListener('change', function (e) {
   Quagga.decodeSingle({
     decoder: {
       readers: [ "ean_reader", "ean_8_reader", "code_39_reader", "code_39_vin_reader", "codabar_reader", "upc_reader",
-        "upc_e_reader",
-      ] // List of active readers
+        "upc_e_reader"] // List of active readers
     },
     locate: true, // try to locate the barcode in the image
     src: image.src // or 'data:image/jpg;base64,' + data
