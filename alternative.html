@@ -6,19 +6,13 @@
 
     <title>index</title>
     <meta name="description" content="" />
-    <meta name="author" content="Christoph Oberhofer" />
 
     <meta name="viewport" content="width=device-width; initial-scale=1.0; user-scalable=no" />
     <link rel="stylesheet" type="text/css" href="./styles.css" />
   </head>
 
   <body>
-      <header>
-          <div class="headline">
-              <h1>QuaggaJS</h1>
-              <h2>An advanced barcode-scanner written in JavaScript</h2>
-          </div>
-      </header>
+    
     <section id="container" class="container">
         <h3>The user's camera</h3>
         <p>If your platform supports the <strong>getUserMedia</strong> API call, you can try the real-time locating and decoding features.
@@ -34,13 +28,13 @@
                 <label>
                     <span>Barcode-Type</span>
                     <select name="decoder_readers">
-                        <option value="code_128" selected="selected">Code 128</option>
+                        <option value="code_128" >Code 128</option>
                         <option value="code_39">Code 39</option>
                         <option value="code_39_vin">Code 39 VIN</option>
                         <option value="ean">EAN</option>
                         <option value="ean_extended">EAN-extended</option>
                         <option value="ean_8">EAN-8</option>
-                        <option value="upc">UPC</option>
+                        <option value="upc" selected="selected">UPC</option>
                         <option value="upc_e">UPC-E</option>
                         <option value="codabar">Codabar</option>
                         <option value="i2of5">Interleaved 2 of 5</option>
@@ -104,11 +98,7 @@
       </div>
       <div id="interactive" class="viewport"></div>
     </section>
-          <footer>
-        <p>
-          &copy; Made with ❤️ by Christoph Oberhofer
-        </p>
-      </footer>
+          
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js" integrity="sha512-bCsBoYoW6zE0aja5xcIyoCDPfT27+cGr7AOCqelttLVRGay6EKGQbR6wm6SUcUGOMGXJpj+jrIpMS6i80+kZPw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
