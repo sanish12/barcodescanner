@@ -133,10 +133,6 @@ $(function() {
                 /**
                  *  UPC VALIDATOR
                  *  */ 
-                if(result){
-                    var checksumVar = result.codeResult.code[result.codeResult.code.length-1];
-                    document.getElementById('customMessage').textContent = checksumVar;
-                }
                 // 
                 $li.find("img").attr("src", result.frame);
                 $li.find("h4.code").html(result.codeResult.code + " (" + result.codeResult.format + ")");
@@ -298,7 +294,37 @@ $(function() {
             $node.find("img").attr("src", canvas.toDataURL());
             $node.find("h4.code").html(code);
             $("#result_strip ul.thumbnails").prepend($node);
+            if(code.length===12){
+                var checkSumVar = code[code.length-1];
+                var evenSumVal = 0;
+                var oddSumVal = 0;
+                var evenSum = [];
+                var oddSum = [];
+                for(var i=0; i<code.length; i++){
+                    console.log(code[i]);
+                    if(i % 2 == 0){
+                        evenSum.push(Number(code[i]));
+                    }else if(i===code.length-1){
+                        //do nothing
+                    }else{
+                        oddSum.push(Number(code[i]));
+                    }
+                }
+                
+                evenSum.forEach(evenNmb => {
+                    evenSumVal = evenSumVal + evenNmb;
+                });
+                oddSum.forEach(oddNmb =>{
+                    oddSumval = oddSumVal + oddNmb;
+                });
+                console.log(evenSumVal);
+                console.log(oddSumVal);
+                var resultCheckSum = ((3 * oddSumVal ) + evenSumVal)%10;
+                console.log(resultCheckSum);
+            }
+            
         }
     });
 
 });
+
