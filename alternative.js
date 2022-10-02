@@ -321,6 +321,7 @@ $(function() {
                 console.log(oddSumVal);
                 var resultCheckSum = ((3 * oddSumVal ) + evenSumVal)%10;
                 console.log(resultCheckSum);
+                document.getElementById('customMessage').innerText = resultCheckSum;
             }
             
         }
