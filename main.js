@@ -9,8 +9,8 @@ imageForScanning.addEventListener('change', function (e) {
   image.src = URL.createObjectURL(e.target.files[0]);
   Quagga.decodeSingle({
     decoder: {
-      readers: ["ean_reader", "ean_8_reader", "code_39_reader", "code_39_vin_reader", "codabar_reader", "upc_reader",
-        "upc_e_reader",
+      readers: ["ean_reader", "ean_reader", "ean_8_reader", "code_39_reader", "code_39_vin_reader", "codabar_reader", "upc_reader",
+        "upc_e_reader", "code_93_reader"
       ] // List of active readers
     },
     debug: {
@@ -25,7 +25,7 @@ imageForScanning.addEventListener('change', function (e) {
     src: image.src // or 'data:image/jpg;base64,' + data
   }, function (result) {
     if (result) {
-      console.log("result", result.codeResult);
+      console.log("result", result);
       document.getElementById('message').textContent = result.codeResult.code;
       // document.getElementById('output').style.display = 'none';
     } else {
