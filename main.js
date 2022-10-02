@@ -60,7 +60,7 @@ streamBarcode.addEventListener('click', function () {
 	});
 
   Quagga.onDetected(function (result) {
-    document.getElementById('message').innerHTML = result;
+    document.getElementById('message').innerHTML = result.codeResult.code;
     console.log('barcode detected');
     console.log(result);
   })
