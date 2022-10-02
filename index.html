@@ -1,32 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barcode Scanner</title>
     <style>
-        #output{
-            height:300px;
+        #output {
+            height: 300px;
+        }
+        #interactive_kings{
+            height: 500px;
+            width: 500px;
+        }
+        #endStream{
+            display: none;
         }
     </style>
 </head>
+
 <body>
     <p id="message"></p>
-    <button id="startStream">Scan Via Camera</button>
 
-    <form action="#">
-        <input type="file" name="image" id="imageBarcode">
-    </form>
-    <img src="#" id="output" alt="">
-
-    <div id="interactive" class="viewport">
-        <video autoplay="true" preload="auto"></video>
+    <div id="fileStream">
+        <form action="#">
+            <input type="file" name="image" id="imageBarcode">
+        </form>
+        <img src="#" id="output" alt="">
     </div>
-    
+
+    <div id="liveStream">
+        <button id="startStream">Scan Via Camera</button>
+        <div id="interactive_kings" class="viewport">
+            <video autoplay="true" preload="auto"></video>
+        </div>
+        <button id="endStream">Close Camera</button>
+    </div>
+
 
     <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js" integrity="sha512-bCsBoYoW6zE0aja5xcIyoCDPfT27+cGr7AOCqelttLVRGay6EKGQbR6wm6SUcUGOMGXJpj+jrIpMS6i80+kZPw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"
+        integrity="sha512-bCsBoYoW6zE0aja5xcIyoCDPfT27+cGr7AOCqelttLVRGay6EKGQbR6wm6SUcUGOMGXJpj+jrIpMS6i80+kZPw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./main.js" async></script>
 </body>
+
 </html>
