@@ -10,7 +10,7 @@ streamBarcode.addEventListener('click', function () {
     inputStream: {
       name: "Live",
       type: "LiveStream",
-      target: document.querySelector('#interactive_kings')    // Or '#yourElement' (optional)
+      // target: document.querySelector('#interactive_kings')    // Or '#yourElement' (optional)
     },
     decoder: {
       readers: ["code_128_reader", "ean_reader", "ean_8_reader", "upc_reader",
