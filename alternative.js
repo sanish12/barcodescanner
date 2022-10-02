@@ -130,7 +130,14 @@ $(function() {
 
             results.forEach(function(result) {
                 var $li = $('<li><div class="thumbnail"><div class="imgWrapper"><img /></div><div class="caption"><h4 class="code"></h4></div></div></li>');
-
+                /**
+                 *  UPC VALIDATOR
+                 *  */ 
+                if(result){
+                    var checksumVar = result.codeResult.code[result.codeResult.code.length-1];
+                    document.getElementById('customMessage').textContent = checksumVar;
+                }
+                // 
                 $li.find("img").attr("src", result.frame);
                 $li.find("h4.code").html(result.codeResult.code + " (" + result.codeResult.format + ")");
                 $ul.prepend($li);
