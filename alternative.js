@@ -304,24 +304,26 @@ $(function() {
                     console.log(code[i]);
                     if(i % 2 == 0){
                         evenSum.push(Number(code[i]));
-                    }else if(i===code.length-1){
+                    }else if(i===(code.length-1)){
                         //do nothing
                     }else{
                         oddSum.push(Number(code[i]));
                     }
                 }
                 
-                evenSum.forEach(evenNmb => {
+                evenSum.forEach(function(evenNmb){
                     evenSumVal = evenSumVal + evenNmb;
                 });
-                oddSum.forEach(oddNmb =>{
-                    oddSumval = oddSumVal + oddNmb;
+                oddSum.forEach(function(oddNmb){
+                    oddSumVal = oddSumVal + oddNmb;
                 });
-                console.log(evenSumVal);
-                console.log(oddSumVal);
+
                 var resultCheckSum = ((3 * oddSumVal ) + evenSumVal)%10;
-                console.log(resultCheckSum);
-                document.getElementById('customMessage').innerText = resultCheckSum;
+                if(resultCheckSum === checkSumVar){
+                    document.getElementById('customMessage').innerText = 'Valid checksum : ' + resultCheckSum;
+                }else{
+                    document.getElementById('customMessage').innerText = 'invalid checksum';
+                }
             }
             
         }
