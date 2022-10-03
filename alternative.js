@@ -351,9 +351,8 @@ document.getElementById('barcodeStarter').addEventListener('click', function () 
                         console.log(code[i]);
                         if (i % 2 == 0) {
                             evenSum.push(Number(code[i]));
-                        } else if (i === (code.length - 1)) {
-                            //do nothing
-                        } else {
+                        }
+                        else {
                             oddSum.push(Number(code[i]));
                         }
                     }
@@ -365,11 +364,11 @@ document.getElementById('barcodeStarter').addEventListener('click', function () 
                         oddSumVal = oddSumVal + oddNmb;
                     });
 
-                    var resultCheckSum = ((3 * oddSumVal) + evenSumVal) % 10;
-                    if (resultCheckSum == checkSumVar) {
+                    var resultCheckSum = oddSumVal + (evenSumVal*3);
+                    if (resultCheckSum % 10 == 0) {
                         document.getElementById('customMessage').innerText = 'Valid checksum : ' + resultCheckSum;
                     } else {
-                        document.getElementById('customMessage').innerText = 'invalid checksum';
+                        document.getElementById('customMessage').innerText = 'invalid checksum' + resultCheckSum;
                     }
                 }
 
